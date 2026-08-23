@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://t8hfku0g6n7w"]
+
+[ext_resource type="Script" uid="uid://cvywylf4gv10n" path="res://Path.cs" id="1_jnavc"]
+
+[node name="Path" type="Node2D" unique_id=1085933741]
+script = ExtResource("1_jnavc")
+
+[node name="Point0" type="Marker2D" parent="." unique_id=860113559]
+position = Vector2(100, 150)
+
+[node name="Point1" type="Marker2D" parent="." unique_id=1670123064]
+position = Vector2(400, 150)
+
+[node name="Point2" type="Marker2D" parent="." unique_id=823890909]
+position = Vector2(400, 400)
+
+[node name="point3" type="Marker2D" parent="." unique_id=660236286]
+position = Vector2(700, 400)
