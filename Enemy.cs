@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public partial class Enemy : Node2D
 {
+	[Signal]
+	public delegate void ReachedEndEventHandler();
+	
 	[Export]
 	public float Speed { get; set; } = 100f;
 
@@ -25,6 +28,9 @@ public partial class Enemy : Node2D
 	{
 		if (_currentPoint >= _path.Count)
 		{
+			EmitSignal(SignalName.ReachedEnd);
+			QueueFree();
+
 			return;
 		}
 

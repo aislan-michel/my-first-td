@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://1egurgyjets8"]
+
+[ext_resource type="Script" uid="uid://bqp5byjjpebqt" path="res://Base.cs" id="1_rpg24"]
+
+[node name="Base" type="Node2D" unique_id=813199125]
+script = ExtResource("1_rpg24")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=969319943]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.25490198, 0.4117647, 0.88235295, 1)

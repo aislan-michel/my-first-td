@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cgf45dehuomsy" path="res://Main.cs" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://57x5lpr4kldo" path="res://enemy.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://t8hfku0g6n7w" path="res://path.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://1egurgyjets8" path="res://base.tscn" id="2_1bvp3"]
 
 [node name="Main" type="Node2D" unique_id=729052487]
 script = ExtResource("1_h2yge")
@@ -10,6 +11,9 @@ script = ExtResource("1_h2yge")
 [node name="map (ColorRect)" type="ColorRect" parent="." unique_id=568371474]
 offset_right = 827.0
 offset_bottom = 583.0
+
+[node name="Base" parent="." unique_id=813199125 instance=ExtResource("2_1bvp3")]
+position = Vector2(700, 400)
 
 [node name="Enemy" parent="." unique_id=1396317074 instance=ExtResource("1_ig7tw")]
 position = Vector2(40, 35)
