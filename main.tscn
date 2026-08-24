@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://xrvh822g5qio"]
 
 [ext_resource type="Script" uid="uid://cgf45dehuomsy" path="res://Main.cs" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://57x5lpr4kldo" path="res://enemy.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://t8hfku0g6n7w" path="res://path.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://1egurgyjets8" path="res://base.tscn" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://c5qe2mrpcbva6" path="res://EnemySpawner.cs" id="3_1bvp3"]
 
 [node name="Main" type="Node2D" unique_id=729052487]
 script = ExtResource("1_h2yge")
@@ -12,10 +12,13 @@ script = ExtResource("1_h2yge")
 offset_right = 827.0
 offset_bottom = 583.0
 
+[node name="Path" parent="." unique_id=1085933741 instance=ExtResource("2_0xm2m")]
+
+[node name="EnemySpawner" type="Node" parent="." unique_id=1171818457]
+script = ExtResource("3_1bvp3")
+
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner" unique_id=1441316389]
+wait_time = 2.0
+
 [node name="Base" parent="." unique_id=813199125 instance=ExtResource("2_1bvp3")]
 position = Vector2(700, 400)
-
-[node name="Enemy" parent="." unique_id=1396317074 instance=ExtResource("1_ig7tw")]
-position = Vector2(40, 35)
-
-[node name="Path" parent="." unique_id=1085933741 instance=ExtResource("2_0xm2m")]
