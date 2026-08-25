@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c1katdroemsso" path="res://Enemy.cs" id="1_7k104"]
 
-[node name="Enemy" type="Node2D" unique_id=1396317074]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc3bh"]
+size = Vector2(40, 40)
+
+[node name="Enemy" type="Area2D" unique_id=1323139391]
 script = ExtResource("1_7k104")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=880218465]
@@ -11,3 +14,6 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 color = Color(0.8627451, 0.078431375, 0.23529412, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=223159342]
+shape = SubResource("RectangleShape2D_jc3bh")
