@@ -19,3 +19,6 @@ color = Color(0.13333334, 0.54509807, 0.13333334, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1775000890]
 shape = SubResource("CircleShape2D_7k104")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=84467201]
+wait_time = 0.8

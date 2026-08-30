@@ -7,12 +7,20 @@ public partial class Enemy : Area2D
 	[Signal]
 	public delegate void ReachedEndEventHandler();
 	
+	[Signal]
+	public delegate void DiedEventHandler();
+	
 	[Export]
 	public float Speed { get; set; } = 100f;
 
 	private List<Vector2> _path = new();
 	private int _currentPoint = 0;
+	
+	[Export]
+	public int MaxHealth { get; set; } = 100;
 
+	private int _health;
+	
 	public void SetPath(List<Vector2> path)
 	{
 		_path = path;
@@ -22,6 +30,32 @@ public partial class Enemy : Area2D
 		{
 			GlobalPosition = _path[0];
 		}
+	}
+	
+	public void TakeDamage(int damage)
+	{
+		_health -= damage;
+
+		GD.Print($"🟥 Enemy recebeu {damage} de dano. HP: {_health}/{MaxHealth}");
+
+		if (_health <= 0)
+		{
+			Die();
+		}
+	}
+	
+	private void Die()
+	{
+		GD.Print("💀 Enemy morreu!");
+
+		EmitSignal(SignalName.Died);
+
+		QueueFree();
+	}
+	
+	public override void _Ready()
+	{
+		_health = MaxHealth;
 	}
 
 	public override void _Process(double delta)

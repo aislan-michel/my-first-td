@@ -33,12 +33,22 @@ public partial class EnemySpawner : Node
 		var points = _path.GetPoints();
 
 		enemy.SetPath(points);
-		
+
 		enemy.ReachedEnd += OnEnemyReachedEnd;
-		
+		enemy.Died += OnEnemyDied;
+
 		_aliveEnemies++;
 
 		GD.Print($"Enemy criado. Vivos: {_aliveEnemies}");
+	}
+	
+	private void OnEnemyDied()
+	{
+		_aliveEnemies--;
+
+		GD.Print($"💀 Enemy morreu. Vivos: {_aliveEnemies}");
+
+		CheckWaveFinished();
 	}
 	
 	private void OnEnemyReachedEnd()
@@ -47,10 +57,22 @@ public partial class EnemySpawner : Node
 
 		GD.Print($"Enemy chegou à base. Vivos: {_aliveEnemies}");
 
-		if (_aliveEnemies <= 0 && _enemiesSpawned >= _enemiesToSpawn)
+		CheckWaveFinished();
+	}
+	
+	private void CheckWaveFinished()
+	{
+		if (_aliveEnemies > 0)
 		{
-			StartNextWave();
+			return;
 		}
+
+		if (_enemiesSpawned < _enemiesToSpawn)
+		{
+			return;
+		}
+
+		StartNextWave();
 	}
 
 	private void OnSpawnTimerTimeout()
