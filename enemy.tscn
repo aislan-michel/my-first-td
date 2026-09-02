@@ -17,3 +17,10 @@ color = Color(0.8627451, 0.078431375, 0.23529412, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=223159342]
 shape = SubResource("RectangleShape2D_jc3bh")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1574324484]
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = -24.0
+show_percentage = false
