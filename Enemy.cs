@@ -17,7 +17,7 @@ public partial class Enemy : Area2D
 	private int _currentPoint = 0;
 	
 	[Export]
-	public int MaxHealth { get; set; } = 100;
+	public int MaxHealth { get; set; } = 50;
 
 	private int _health;
 	
