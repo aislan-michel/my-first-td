@@ -17,9 +17,10 @@ public partial class Enemy : Area2D
 	private int _currentPoint = 0;
 	
 	[Export]
-	public int MaxHealth { get; set; } = 100;
+	public int MaxHealth { get; set; } = 50;
 
 	private int _health;
+	private ProgressBar _healthBar;
 	
 	public void SetPath(List<Vector2> path)
 	{
@@ -36,7 +37,9 @@ public partial class Enemy : Area2D
 	{
 		_health -= damage;
 
-		GD.Print($"🟥 Enemy recebeu {damage} de dano. HP: {_health}/{MaxHealth}");
+		_healthBar.Value = _health;
+
+		GD.Print($"Enemy tomou {damage} de dano. Vida: {_health}");
 
 		if (_health <= 0)
 		{
@@ -56,6 +59,11 @@ public partial class Enemy : Area2D
 	public override void _Ready()
 	{
 		_health = MaxHealth;
+
+		_healthBar = GetNode<ProgressBar>("HealthBar");
+
+		_healthBar.MaxValue = MaxHealth;
+		_healthBar.Value = _health;
 	}
 
 	public override void _Process(double delta)
